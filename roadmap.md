@@ -15,9 +15,11 @@
 	- Lume integration
 - Iteration 3: ✓
 	- Cargo integration
-- Iteration 4:
+- Iteration 4: ✓
 	- Talkback integration
 	- Anim8 integration
+- Iteration 5:
+	- *Very* simple entity pools
 
 ## Iteration checklist
 - Does this provide value?

@@ -8,6 +8,8 @@ local lume = require 'quartizine.lib.lume'
 local talkback = require 'quartizine.lib.talkback'
 local timer = require 'quartizine.lib.timer'
 
+local pool = require 'quartizine.pool'
+
 local conversation = talkback.new()
 
 local quartizine = {
@@ -39,6 +41,9 @@ local quartizine = {
 		say = function(...) return conversation:say(...) end,
 		ignore = function(...) conversation:stopListening(...) end,
 		newGroup = function(...) return conversation:newGroup(...) end,
+	},
+	world = {
+		newPool = function() return pool() end,
 	},
 }
 

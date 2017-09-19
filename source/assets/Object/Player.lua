@@ -3,6 +3,7 @@ local player = quartizine.newObject()
 function player:new(x, y)
 	self.x = x
 	self.y = y
+	self.asdf = love.math.random(10)
 end
 
 function player:update(dt)
