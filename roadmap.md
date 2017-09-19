@@ -14,6 +14,11 @@
 	- Baton integration
 	- Lume integration
 
+## Iteration checklist
+- Does this provide value?
+- Would this interfere with game development?
+- Is this technically sound?
+
 ## Lua or MoonScript?
 - Lua
 	- People actually use it

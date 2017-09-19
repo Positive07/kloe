@@ -1,11 +1,11 @@
-local baton = require 'lib.baton'
-local object = require 'lib.classic'
-local state = require 'lib.gamestate'
-local inspect = require 'lib.inspect'
-local lume = require 'lib.lume'
-local timer = require 'lib.timer'
+local baton = require 'quartizine.lib.baton'
+local object = require 'quartizine.lib.classic'
+local state = require 'quartizine.lib.gamestate'
+local inspect = require 'quartizine.lib.inspect'
+local lume = require 'quartizine.lib.lume'
+local timer = require 'quartizine.lib.timer'
 
-quartizine = {
+local quartizine = {
 	newObject = function() return object:extend() end,
 	newTimer = timer.new,
 
