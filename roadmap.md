@@ -15,6 +15,8 @@
 	- Lume integration
 - Iteration 3: ✓
 	- Cargo integration
+- Iteration 4:
+	- Talkback integration
 
 ## Iteration checklist
 - Does this provide value?
