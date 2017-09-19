@@ -1,14 +1,10 @@
-object = require 'lib.classic'
-state = require 'lib.gamestate'
-inspect = require 'lib.inspect'
-lume = require 'lib.lume'
-timer = require 'lib.timer'
+quartizine = require 'quartizine'
 
 game = require 'assets.state.game'
 
 function love.load()
-	state.registerEvents()
-	state.switch(game)
+	quartizine.state.registerEvents()
+	quartizine.state.switch(game)
 end
 
 function love.keypressed(key)
