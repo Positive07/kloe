@@ -1,4 +1,5 @@
 local baton = require 'quartizine.lib.baton'
+local cargo = require 'quartizine.lib.cargo'
 local object = require 'quartizine.lib.classic'
 local state = require 'quartizine.lib.gamestate'
 local inspect = require 'quartizine.lib.inspect'
@@ -6,6 +7,7 @@ local lume = require 'quartizine.lib.lume'
 local timer = require 'quartizine.lib.timer'
 
 local quartizine = {
+	load = cargo.init,
 	newObject = function() return object:extend() end,
 	newTimer = timer.new,
 

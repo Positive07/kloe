@@ -13,6 +13,8 @@
 	- Quartizine namespace
 	- Baton integration
 	- Lume integration
+- Iteration 3: ✓
+	- Cargo integration
 
 ## Iteration checklist
 - Does this provide value?

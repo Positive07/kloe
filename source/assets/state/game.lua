@@ -1,9 +1,7 @@
-local player = require 'assets.object.player'
-
 local game = {}
 
 function game:enter()
-	self.player = player(100, 100)
+	self.player = Object.Player(100, 100)
 end
 
 function game:update(dt)

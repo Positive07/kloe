@@ -13,9 +13,13 @@ input = quartizine.input.newPlayer(controls,
 	love.joystick.getJoysticks()[1])
 
 function love.load()
+	-- load assets
+	Object = quartizine.load 'assets/Object'
+	State = quartizine.load 'assets/State'
+
 	-- initialize states and go to the game state
 	quartizine.state.registerEvents()
-	quartizine.state.switch(require 'assets.state.game')
+	quartizine.state.switch(State.Game)
 end
 
 function love.update(dt)
