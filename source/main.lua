@@ -28,7 +28,7 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
-	-- quite on escape
+	-- quit on escape
 	if key == 'escape' then
 		love.event.quit()
 	end
