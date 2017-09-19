@@ -7,6 +7,7 @@ local inspect = require 'quartizine.lib.inspect'
 local lume = require 'quartizine.lib.lume'
 local talkback = require 'quartizine.lib.talkback'
 local timer = require 'quartizine.lib.timer'
+vector = require 'quartizine.lib.vector' --global for the sake of convenience
 
 local pool = require 'quartizine.pool'
 
