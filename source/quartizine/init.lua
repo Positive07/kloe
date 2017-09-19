@@ -1,3 +1,4 @@
+local anim8 = require 'quartizine.lib.anim8'
 local baton = require 'quartizine.lib.baton'
 local cargo = require 'quartizine.lib.cargo'
 local object = require 'quartizine.lib.classic'
@@ -27,6 +28,10 @@ local quartizine = {
 	},
 	input = {
 		newPlayer = baton.new,
+	},
+	graphics = {
+		newGrid = anim8.newGrid,
+		newAnimation = anim8.newAnimation,
 	},
 	state = state,
 	message = {

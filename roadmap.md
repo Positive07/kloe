@@ -17,6 +17,7 @@
 	- Cargo integration
 - Iteration 4:
 	- Talkback integration
+	- Anim8 integration
 
 ## Iteration checklist
 - Does this provide value?
