@@ -9,7 +9,7 @@
 - Iteration 1: ✓
 	- States and objects
 	- Just a template project you can clone
-- Iteration 2:
+- Iteration 2: ✓
 	- Quartizine namespace
 	- Baton integration
 	- Lume integration
