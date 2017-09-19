@@ -4,7 +4,10 @@ local object = require 'quartizine.lib.classic'
 local state = require 'quartizine.lib.gamestate'
 local inspect = require 'quartizine.lib.inspect'
 local lume = require 'quartizine.lib.lume'
+local talkback = require 'quartizine.lib.talkback'
 local timer = require 'quartizine.lib.timer'
+
+local conversation = talkback.new()
 
 local quartizine = {
 	load = cargo.init,
@@ -26,6 +29,12 @@ local quartizine = {
 		newPlayer = baton.new,
 	},
 	state = state,
+	message = {
+		listen = function(...) conversation:listen(...) end,
+		say = function(...) return conversation:say(...) end,
+		ignore = function(...) conversation:stopListening(...) end,
+		newGroup = function(...) return conversation:newGroup(...) end,
+	},
 }
 
 return quartizine
