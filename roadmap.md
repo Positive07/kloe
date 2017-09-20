@@ -20,8 +20,10 @@
 	- Anim8 integration
 - Iteration 5: ✓
 	- *Very* simple entity pools
-- Iteration 6:
+- Iteration 6: ✓
 	- Organization/naming cleanup
+- Iteration 7:
+	- Bump worlds
 
 ## Iteration checklist
 - Does this provide value?
