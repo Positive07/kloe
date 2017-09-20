@@ -1,20 +1,20 @@
 local object = require 'quartizine.lib.classic'
 local lume = require 'quartizine.lib.lume'
 
-local pool = object:extend()
+local world = object:extend()
 
 -- main API --
 
-function pool:new()
+function world:new()
 	self._entities = {}
 end
 
-function pool:add(entity)
+function world:add(entity)
 	table.insert(self._entities, entity)
 	return entity
 end
 
-function pool:get(f)
+function world:get(f)
 	if f then
 		return lume.filter(self._entities, f)
 	else
@@ -22,7 +22,7 @@ function pool:get(f)
 	end
 end
 
-function pool:call(event, ...)
+function world:call(event, ...)
 	for i = 1, #self._entities do
 		local entity = self._entities[i]
 		if entity[event] then
@@ -31,19 +31,19 @@ function pool:call(event, ...)
 	end
 end
 
-function pool:clear(f)
+function world:clear(f)
 	self._entities = lume.reject(self._entities, f)
 end
 
 -- convenience functions --
 
-function pool:update(dt)
+function world:update(dt)
 	self:call('update', dt)
 	self:clear(function(e) return e.remove end)
 end
 
-function pool:draw()
+function world:draw()
 	self:call('draw')
 end
 
-return pool
+return world

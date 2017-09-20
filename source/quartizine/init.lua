@@ -9,7 +9,7 @@ local talkback = require 'quartizine.lib.talkback'
 local timer = require 'quartizine.lib.timer'
 vector = require 'quartizine.lib.vector' --global for the sake of convenience
 
-local pool = require 'quartizine.pool'
+local world = require 'quartizine.world'
 
 local conversation = talkback.new()
 
@@ -44,7 +44,7 @@ local quartizine = {
 		newGroup = function(...) return conversation:newGroup(...) end,
 	},
 	world = {
-		newPool = function() return pool() end,
+		newWorld = function() return world() end,
 	},
 }
 
