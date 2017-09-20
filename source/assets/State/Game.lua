@@ -2,10 +2,10 @@ local game = {}
 
 function game:enter()
 	self.world = quartizine.world.newWorld()
-	self.world:add(Object.Player(100, 100))
-	self.world:add(Object.Player(150, 100))
-	self.world:add(Object.Player(100, 150))
-	self.world:add(Object.Player(200, 400))
+	self.world:add(Class.Player(100, 100))
+	self.world:add(Class.Player(150, 100))
+	self.world:add(Class.Player(100, 150))
+	self.world:add(Class.Player(200, 400))
 end
 
 function game:update(dt)

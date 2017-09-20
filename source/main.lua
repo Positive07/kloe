@@ -14,8 +14,8 @@ input = quartizine.input.newPlayer(controls,
 
 function love.load()
 	-- load assets
-	Object = quartizine.load 'assets/Object'
-	State = quartizine.load 'assets/State'
+	Class = quartizine.assets.load 'assets/Class'
+	State = quartizine.assets.load 'assets/State'
 
 	-- initialize states and go to the game state
 	quartizine.state.registerEvents()

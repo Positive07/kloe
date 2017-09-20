@@ -1,4 +1,4 @@
-local player = quartizine.newObject()
+local player = quartizine.class.newClass()
 
 function player:new(x, y)
 	self.x = x
