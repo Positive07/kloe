@@ -10,9 +10,9 @@ function bumpWorld:new()
 	self._bump = bump.newWorld()
 end
 
-function bumpWorld:_onAdd(entity, x, y, w, h)
-	if x and y and w and h then
-		self._bump:add(entity, x, y, w, h)
+function bumpWorld:_onAdd(entity, options)
+	if options.rect then
+		self._bump:add(entity, unpack(options.rect))
 	end
 end
 

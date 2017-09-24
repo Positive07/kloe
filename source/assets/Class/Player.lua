@@ -1,15 +1,13 @@
-local player = quartizine.class.newClass()
+local player = quartizine.world.newBumpWorldObject()
 
-function player:new(world)
-	self.world = world
-
+function player:start()
 	self.vx = 0
 	self.vy = 0
 end
 
 function player:isOnGround()
-	local x, y = self.world:getRect(self)
-	local _, _, cols = self.world:check(self, x, y + 1, function(_, other)
+	local x, y = self:getRect()
+	local _, _, cols = self:check(x, y + 1, function(_, other)
 		if other:is(Class.Wall) then
 			return 'slide'
 		end
@@ -42,8 +40,8 @@ function player:update(dt)
 	if input:down 'right' then self.vx = self.vx + 500 * dt end
 
 	-- apply movement
-	local x, y = self.world:getRect(self)
-	local _, _, cols = self.world:move(self, x + self.vx * dt, y + self.vy * dt)
+	local x, y = self:getRect()
+	local _, _, cols = self:move(x + self.vx * dt, y + self.vy * dt)
 
 	-- check for collisions
 	for i = 1, #cols do
@@ -57,9 +55,8 @@ function player:update(dt)
 end
 
 function player:draw()
-	local x, y, w, h = self.world:getRect(self)
 	love.graphics.setColor(255, 255, 0)
-	love.graphics.rectangle('fill', x, y, w, h)
+	love.graphics.rectangle('fill', self:getRect())
 	love.graphics.print(tostring(self:isOnGround()))
 	love.graphics.print(tostring(self.vx), 0, 16)
 end

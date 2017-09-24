@@ -1,13 +1,8 @@
-local wall = quartizine.class.newClass()
-
-function wall:new(world)
-	self.world = world
-end
+local wall = quartizine.world.newBumpWorldObject()
 
 function wall:draw()
-	local x, y, w, h = self.world:getRect(self)
 	love.graphics.setColor(255, 255, 255)
-	love.graphics.rectangle('fill', x, y, w, h)
+	love.graphics.rectangle('fill', self:getRect())
 end
 
 return wall

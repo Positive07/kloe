@@ -3,7 +3,7 @@ local lume = require 'quartizine.lib.lume'
 
 local world = object:extend()
 
-function world:_onAdd(entity, ...) end
+function world:_onAdd(entity, options) end
 function world:_onRemove(entity) end
 
 -- main API --
@@ -12,8 +12,11 @@ function world:new()
 	self._entities = {}
 end
 
-function world:add(entity, ...)
-	self:_onAdd(entity, ...)
+function world:add(options)
+	options.args = options.args or {}
+	local entity = options.entity(self)
+	self:_onAdd(entity, options)
+	entity:start(unpack(options.args))
 	table.insert(self._entities, entity)
 	return entity
 end

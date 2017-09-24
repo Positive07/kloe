@@ -11,6 +11,8 @@ local vector = require 'quartizine.lib.vector'
 
 local world = require 'quartizine.world'
 local bumpWorld = require 'quartizine.bumpworld'
+local worldObject = require 'quartizine.worldobject'
+local bumpWorldObject = require 'quartizine.bumpworldobject'
 
 local conversation = talkback.new()
 
@@ -55,5 +57,7 @@ return {
 	world = {
 		newWorld = function() return world() end,
 		newBumpWorld = function() return bumpWorld() end,
+		newWorldObject = function() return worldObject:extend() end,
+		newBumpWorldObject = function() return bumpWorldObject:extend() end,
 	},
 }

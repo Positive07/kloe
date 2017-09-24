@@ -24,6 +24,8 @@
 	- Organization/naming cleanup
 - Iteration 7: ✓
 	- Bump worlds
+- Iteration 8:
+	- World object classes
 
 ## Iteration checklist
 - Does this provide value?
