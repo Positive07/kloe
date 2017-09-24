@@ -29,6 +29,11 @@
 - Iteration 9:
 	- Rename to Kloe
 	- Provide classes with a new Sara namespace
+		- I like the idea of this, and I think it makes the organization better
+		- What things should be classes and what things should not?
+		- Should people be extending the base Object class? yeah no shit
+		- Should people be extending the World Object classes? most likely
+		- Should people be extending the World classes? I'm not as sure on this one
 	- (these are temporary names, whatever)
 
 ## Iteration checklist
