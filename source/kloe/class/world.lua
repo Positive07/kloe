@@ -1,18 +1,18 @@
-local object = require 'kloe.lib.classic'
+local Object = require 'kloe.lib.classic'
 local lume = require 'kloe.lib.lume'
 
-local world = object:extend()
+local World = Object:extend()
 
-function world:_onAdd(entity, options) end
-function world:_onRemove(entity) end
+function World:_onAdd(entity, options) end
+function World:_onRemove(entity) end
 
 -- main API --
 
-function world:new()
+function World:new()
 	self._entities = {}
 end
 
-function world:add(options)
+function World:add(options)
 	options.args = options.args or {}
 	local entity = options.entity(self)
 	self:_onAdd(entity, options)
@@ -21,7 +21,7 @@ function world:add(options)
 	return entity
 end
 
-function world:get(f)
+function World:get(f)
 	if f then
 		return lume.filter(self._entities, f)
 	else
@@ -29,7 +29,7 @@ function world:get(f)
 	end
 end
 
-function world:call(event, ...)
+function World:call(event, ...)
 	for i = 1, #self._entities do
 		local entity = self._entities[i]
 		if entity[event] then
@@ -38,7 +38,7 @@ function world:call(event, ...)
 	end
 end
 
-function world:clear(f)
+function World:clear(f)
 	for i = #self._entities, 1, -1 do
 		local entity = self._entities[i]
 		if f(entity) then
@@ -50,13 +50,13 @@ end
 
 -- convenience functions --
 
-function world:update(dt)
+function World:update(dt)
 	self:call('update', dt)
 	self:clear(function(e) return e.remove end)
 end
 
-function world:draw()
+function World:draw()
 	self:call('draw')
 end
 
-return world
+return World

@@ -1,5 +1,6 @@
 -- load kloe
-kloe = require 'kloe'
+kloe, Sara = unpack(require 'kloe')
+assert(Sara)
 
 -- define controls (see https://github.com/tesselode/baton for details)
 local controls = {
@@ -9,8 +10,7 @@ local controls = {
 	down = {'key:down', 'axis:lefty+', 'button:dpdown'},
 }
 -- create an input object
-input = kloe.input.newPlayer(controls,
-	love.joystick.getJoysticks()[1])
+input = kloe.input.newPlayer(controls, love.joystick.getJoysticks()[1])
 
 function love.load()
 	-- load assets

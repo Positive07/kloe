@@ -1,4 +1,4 @@
-local player = kloe.world.newBumpWorldObject()
+local player = Sara.BumpWorldObject:extend()
 
 function player:start()
 	self.vx = 0

@@ -1,4 +1,4 @@
-local wall = kloe.world.newBumpWorldObject()
+local wall = Sara.BumpWorldObject:extend()
 
 function wall:draw()
 	love.graphics.setColor(255, 255, 255)

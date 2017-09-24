@@ -1,7 +1,7 @@
 local game = {}
 
 function game:enter()
-	self.world = kloe.world.newBumpWorld()
+	self.world = Sara.BumpWorld()
 	self.world:add {
 		entity = Class.Wall,
 		rect = {0, 500, 800, 50}
