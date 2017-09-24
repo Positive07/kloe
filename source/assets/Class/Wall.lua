@@ -1,4 +1,4 @@
-local wall = quartizine.world.newBumpWorldObject()
+local wall = kloe.world.newBumpWorldObject()
 
 function wall:draw()
 	love.graphics.setColor(255, 255, 255)

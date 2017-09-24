@@ -1,4 +1,4 @@
-local worldObject = require 'quartizine.worldobject'
+local worldObject = require 'kloe.worldobject'
 
 local bumpWorldObject = worldObject:extend()
 

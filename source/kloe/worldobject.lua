@@ -1,4 +1,4 @@
-local object = require 'quartizine.lib.classic'
+local object = require 'kloe.lib.classic'
 
 local worldObject = object:extend()
 

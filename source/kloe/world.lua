@@ -1,5 +1,5 @@
-local object = require 'quartizine.lib.classic'
-local lume = require 'quartizine.lib.lume'
+local object = require 'kloe.lib.classic'
+local lume = require 'kloe.lib.lume'
 
 local world = object:extend()
 

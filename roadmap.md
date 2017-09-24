@@ -26,6 +26,10 @@
 	- Bump worlds
 - Iteration 8:
 	- World object classes
+- Iteration 9:
+	- Rename to Kloe
+	- Provide classes with a new Sara namespace
+	- (these are temporary names, whatever)
 
 ## Iteration checklist
 - Does this provide value?

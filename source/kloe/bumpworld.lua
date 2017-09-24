@@ -1,7 +1,7 @@
-local bump = require 'quartizine.lib.bump'
-local lume = require 'quartizine.lib.lume'
+local bump = require 'kloe.lib.bump'
+local lume = require 'kloe.lib.lume'
 
-local world = require 'quartizine.world'
+local world = require 'kloe.world'
 
 local bumpWorld = world:extend()
 

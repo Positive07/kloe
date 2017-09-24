@@ -1,5 +1,5 @@
--- load quartizine
-quartizine = require 'quartizine'
+-- load kloe
+kloe = require 'kloe'
 
 -- define controls (see https://github.com/tesselode/baton for details)
 local controls = {
@@ -9,17 +9,17 @@ local controls = {
 	down = {'key:down', 'axis:lefty+', 'button:dpdown'},
 }
 -- create an input object
-input = quartizine.input.newPlayer(controls,
+input = kloe.input.newPlayer(controls,
 	love.joystick.getJoysticks()[1])
 
 function love.load()
 	-- load assets
-	Class = quartizine.assets.load 'assets/Class'
-	State = quartizine.assets.load 'assets/State'
+	Class = kloe.assets.load 'assets/Class'
+	State = kloe.assets.load 'assets/State'
 
 	-- initialize states and go to the game state
-	quartizine.state.registerEvents()
-	quartizine.state.switch(State.Game)
+	kloe.state.registerEvents()
+	kloe.state.switch(State.Game)
 end
 
 function love.update(dt)

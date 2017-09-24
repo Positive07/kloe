@@ -1,4 +1,4 @@
-local player = quartizine.world.newBumpWorldObject()
+local player = kloe.world.newBumpWorldObject()
 
 function player:start()
 	self.vx = 0
