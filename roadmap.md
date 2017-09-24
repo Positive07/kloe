@@ -22,7 +22,7 @@
 	- *Very* simple entity pools
 - Iteration 6: ✓
 	- Organization/naming cleanup
-- Iteration 7:
+- Iteration 7: ✓
 	- Bump worlds
 
 ## Iteration checklist

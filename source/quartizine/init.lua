@@ -10,6 +10,7 @@ local timer = require 'quartizine.lib.timer'
 local vector = require 'quartizine.lib.vector'
 
 local world = require 'quartizine.world'
+local bumpWorld = require 'quartizine.bumpworld'
 
 local conversation = talkback.new()
 
@@ -53,5 +54,6 @@ return {
 	},
 	world = {
 		newWorld = function() return world() end,
+		newBumpWorld = function() return bumpWorld() end,
 	},
 }

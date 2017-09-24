@@ -22,7 +22,11 @@ function bumpWorld:_onRemove(entity)
 	end
 end
 
-function bumpWorld:setBoundingBox(entity, x, y, w, h)
+function bumpWorld:getRect(entity)
+	return self._bump:getRect(entity)
+end
+
+function bumpWorld:setRect(entity, x, y, w, h)
 	self._bump:update(entity, x, y, w, h)
 end
 
