@@ -23,6 +23,14 @@ local kloe = {
 	graphics = {
 		newGrid = anim8.newGrid,
 		newAnimation = anim8.newAnimation,
+
+		rectangleV = function(mode, p, s, r, segments)
+			r = r or {}
+			love.graphics.rectangle(mode, p.x, p.y, s.x, s.y, r.x, r.y, segments)
+		end,
+		circleV = function(mode, p, radius, segments)
+			love.graphics.circle(mode, p.x, p.y, radius, segments)
+		end,
 	},
 	input = {
 		newPlayer = baton.new,
