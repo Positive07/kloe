@@ -1,22 +1,17 @@
-local Object = require 'kloe.lib.classic'
 local lume = require 'kloe.lib.lume'
 
-local World = Object:extend()
+local World = {}
 
-function World:_onAdd(entity, options) end
-function World:_onRemove(entity) end
+-- user-definable functions
+
+function World:onAdd(entity, ...) end
+function World:filter(entity) return entity.remove end
+function World:onRemove(entity) end
 
 -- main API --
 
-function World:new()
-	self._entities = {}
-end
-
-function World:add(options)
-	options.args = options.args or {}
-	local entity = options.entity(self)
-	self:_onAdd(entity, options)
-	entity:start(unpack(options.args))
+function World:add(entity, ...)
+	self:onAdd(entity, ...)
 	table.insert(self._entities, entity)
 	return entity
 end
@@ -41,8 +36,8 @@ end
 function World:clear(f)
 	for i = #self._entities, 1, -1 do
 		local entity = self._entities[i]
-		if f(entity) then
-			self:_onRemove(entity)
+		if self:filter(entity) then
+			self:onRemove(entity)
 			table.remove(self._entities, i)
 		end
 	end
@@ -52,11 +47,19 @@ end
 
 function World:update(dt)
 	self:call('update', dt)
-	self:clear(function(e) return e.remove end)
+	self:clear()
 end
 
 function World:draw()
 	self:call('draw')
 end
 
-return World
+-- constructor
+
+return function()
+	return setmetatable({
+		_entities = {},
+	}, {
+		__index = World,
+	})
+end

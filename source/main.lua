@@ -1,6 +1,5 @@
 -- load kloe
-kloe, Sara = unpack(require 'kloe')
-assert(Sara)
+kloe = require 'kloe'
 
 -- define controls (see https://github.com/tesselode/baton for details)
 local controls = {

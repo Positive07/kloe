@@ -35,6 +35,9 @@
 		- Should people be extending the World Object classes? most likely
 		- Should people be extending the World classes? I'm not as sure on this one
 	- (these are temporary names, whatever)
+- Iteration 10:
+	- Remove Sara
+	- Make the world class more library style
 
 ## Iteration checklist
 - Does this provide value?

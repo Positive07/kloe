@@ -3,16 +3,22 @@ local baton = require 'kloe.lib.baton'
 local cargo = require 'kloe.lib.cargo'
 local inspect = require 'kloe.lib.inspect'
 local lume = require 'kloe.lib.lume'
+local object = require 'kloe.lib.classic'
 local state = require 'kloe.lib.gamestate'
 local talkback = require 'kloe.lib.talkback'
 local timer = require 'kloe.lib.timer'
 local vector = require 'kloe.lib.vector'
+
+local world = require 'kloe.world'
 
 local conversation = talkback.new()
 
 local kloe = {
 	assets = {
 		load = cargo.init,
+	},
+	class = {
+		newClass = function() return object:extend() end
 	},
 	graphics = {
 		newGrid = anim8.newGrid,
@@ -45,14 +51,9 @@ local kloe = {
 	vector = {
 		newVector = vector,
 	},
+	world = {
+		newWorld = world,
+	},
 }
 
-local Sara = {
-	Object = require 'kloe.lib.classic',
-	World = require 'kloe.class.world',
-	BumpWorld = require 'kloe.class.bumpworld',
-	WorldObject = require 'kloe.class.worldobject',
-	BumpWorldObject = require 'kloe.class.bumpworldobject',
-}
-
-return {kloe, Sara}
+return kloe
