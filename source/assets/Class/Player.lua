@@ -15,8 +15,8 @@ function player:update(dt)
 end
 
 function player:draw()
-	love.graphics.setColor(255, 255, 255)
-	kloe.graphics.rectangleV('fill', self.position, self.size)
+	lg.setColor(255, 255, 255)
+	kg.rectangleV('fill', self.position, self.size)
 end
 
 return player

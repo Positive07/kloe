@@ -1,6 +1,11 @@
 -- load kloe
 kloe = require 'kloe'
 
+-- shortcuts
+vec2 = kloe.math.newVector
+lg = love.graphics
+kg = kloe.graphics
+
 -- define controls (see https://github.com/tesselode/baton for details)
 local controls = {
 	left = {'key:left', 'axis:leftx-', 'button:dpleft'},

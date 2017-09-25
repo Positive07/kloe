@@ -41,6 +41,7 @@ local kloe = {
 		sign = lume.sign,
 		lerp = lume.lerp,
 		choose = lume.randomchoice,
+		newVector = vector,
 	},
 	message = {
 		listen = function(...) conversation:listen(...) end,
@@ -55,9 +56,6 @@ local kloe = {
 	},
 	timer = {
 		newTimer = timer.new,
-	},
-	vector = {
-		newVector = vector,
 	},
 	world = {
 		newWorld = world,
