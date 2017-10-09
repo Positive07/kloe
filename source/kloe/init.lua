@@ -20,18 +20,24 @@ local kloe = {
 	class = {
 		newClass = function() return object:extend() end
 	},
-	graphics = {
-		newGrid = anim8.newGrid,
-		newAnimation = anim8.newAnimation,
-
-		rectangleV = function(mode, p, s, r, segments)
-			r = r or {}
-			love.graphics.rectangle(mode, p.x, p.y, s.x, s.y, r.x, r.y, segments)
+	-- wrap love.graphics to accept vector arguments
+	graphics = setmetatable({}, {
+		__index = function(t, k)
+			return function(...)
+				local args = {...}
+				local newArgs = {}
+				for _, arg in ipairs(args) do
+					if vector.isvector(arg) then
+						table.insert(newArgs, arg.x)
+						table.insert(newArgs, arg.y)
+					else
+						table.insert(newArgs, arg)
+					end
+				end
+				love.graphics[k](unpack(newArgs))
+			end
 		end,
-		circleV = function(mode, p, radius, segments)
-			love.graphics.circle(mode, p.x, p.y, radius, segments)
-		end,
-	},
+	}),
 	input = {
 		newPlayer = baton.new,
 	},
