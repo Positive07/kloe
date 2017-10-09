@@ -4,12 +4,11 @@ local cargo = require 'kloe.lib.cargo'
 local inspect = require 'kloe.lib.inspect'
 local lume = require 'kloe.lib.lume'
 local object = require 'kloe.lib.classic'
+local ochre = require 'kloe.lib.ochre'
 local state = require 'kloe.lib.gamestate'
 local talkback = require 'kloe.lib.talkback'
 local timer = require 'kloe.lib.timer'
 local vector = require 'kloe.lib.vector'
-
-local world = require 'kloe.world'
 
 local conversation = talkback.new()
 
@@ -64,7 +63,7 @@ local kloe = {
 		newTimer = timer.new,
 	},
 	world = {
-		newWorld = world,
+		newWorld = function() return ochre.new(ochre.systems.simple) end,
 	},
 }
 

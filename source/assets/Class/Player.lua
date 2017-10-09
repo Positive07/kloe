@@ -16,7 +16,7 @@ end
 
 function player:draw()
 	lg.setColor(255, 255, 255)
-	kg.rectangleV('fill', self.position, self.size)
+	kg.rectangle('fill', self.position, self.size)
 end
 
 return player
