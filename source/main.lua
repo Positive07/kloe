@@ -2,8 +2,7 @@
 kloe = require 'kloe'
 
 -- shortcuts
-vec2 = kloe.math.newVector
-lg = love.graphics
+vector = kloe.math.newVector
 kg = kloe.graphics
 
 -- create an input object
@@ -13,6 +12,7 @@ input = kloe.input.newPlayer {
 		right = {'key:right', 'axis:leftx+', 'button:dpright'},
 		up = {'key:up', 'axis:lefty-', 'button:dpup'},
 		down = {'key:down', 'axis:lefty+', 'button:dpdown'},
+		action = {'key:x', 'button:a'},
 	},
 	pairs = {
 		move = {'left', 'right', 'up', 'down'}
@@ -20,11 +20,11 @@ input = kloe.input.newPlayer {
 	joystick = love.joystick.getJoysticks()[1],
 }
 
-function love.load()
-	-- load assets
-	Class = kloe.assets.load 'assets/Class'
-	State = kloe.assets.load 'assets/State'
+-- load assets
+Class = kloe.assets.load 'assets/Class'
+State = kloe.assets.load 'assets/State'
 
+function love.load()
 	-- initialize states and go to the game state
 	kloe.state.registerEvents()
 	kloe.state.switch(State.Game)
