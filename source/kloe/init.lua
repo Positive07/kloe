@@ -1,4 +1,3 @@
-local anim8 = require 'kloe.lib.anim8'
 local baton = require 'kloe.lib.baton'
 local cargo = require 'kloe.lib.cargo'
 local inspect = require 'kloe.lib.inspect'
@@ -9,8 +8,6 @@ local state = require 'kloe.lib.gamestate'
 local talkback = require 'kloe.lib.talkback'
 local timer = require 'kloe.lib.timer'
 local vector = require 'kloe.lib.vector'
-
-local conversation = talkback.new()
 
 local kloe = {
 	assets = {
@@ -49,9 +46,10 @@ local kloe = {
 		newVector = vector,
 	},
 	message = {
-		listen = function(...) conversation:listen(...) end,
+		listen = function(...) return conversation:listen(...) end,
 		say = function(...) return conversation:say(...) end,
-		ignore = function(...) conversation:stopListening(...) end,
+		ignore = function(...) return conversation:ignore(...) end,
+		reset = function(...) return conversation:reset(...) end,
 		newGroup = function(...) return conversation:newGroup(...) end,
 	},
 	state = state,

@@ -6,15 +6,19 @@ vec2 = kloe.math.newVector
 lg = love.graphics
 kg = kloe.graphics
 
--- define controls (see https://github.com/tesselode/baton for details)
-local controls = {
-	left = {'key:left', 'axis:leftx-', 'button:dpleft'},
-	right = {'key:right', 'axis:leftx+', 'button:dpright'},
-	up = {'key:up', 'axis:lefty-', 'button:dpup'},
-	down = {'key:down', 'axis:lefty+', 'button:dpdown'},
-}
 -- create an input object
-input = kloe.input.newPlayer(controls, love.joystick.getJoysticks()[1])
+input = kloe.input.newPlayer {
+	controls = {
+		left = {'key:left', 'axis:leftx-', 'button:dpleft'},
+		right = {'key:right', 'axis:leftx+', 'button:dpright'},
+		up = {'key:up', 'axis:lefty-', 'button:dpup'},
+		down = {'key:down', 'axis:lefty+', 'button:dpdown'},
+	},
+	pairs = {
+		move = {'left', 'right', 'up', 'down'}
+	},
+	joystick = love.joystick.getJoysticks()[1],
+}
 
 function love.load()
 	-- load assets
