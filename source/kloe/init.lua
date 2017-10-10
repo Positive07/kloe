@@ -61,7 +61,7 @@ local kloe = {
 		newTimer = timer.new,
 	},
 	world = {
-		newWorld = function() return ochre.new(ochre.systems.simple) end,
+		newWorld = function() return ochre.new() end,
 	},
 }
 
