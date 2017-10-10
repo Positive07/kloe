@@ -21,8 +21,7 @@ input = kloe.input.newPlayer {
 }
 
 -- load assets
-Class = kloe.assets.load 'assets/Class'
-State = kloe.assets.load 'assets/State'
+setmetatable(_G, {__index = kloe.assets.load 'assets'})
 
 function love.load()
 	-- initialize states and go to the game state
