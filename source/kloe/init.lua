@@ -56,12 +56,20 @@ local kloe = {
 	table = {
 		inspect = inspect,
 		remove = lume.remove,
+		all = lume.all,
+		any = lume.any,
+		filter = lume.filter,
+		reject = lume.reject,
+		match = lume.match,
+		serialize = lume.serialize,
+		deserialize = lume.deserialize,
+		ripairs = lume.ripairs,
 	},
 	timer = {
 		newTimer = timer.new,
 	},
 	world = {
-		newWorld = function(...) return ochre.new(...) end,
+		newWorld = ochre.new,
 	},
 }
 
