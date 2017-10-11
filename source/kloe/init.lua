@@ -46,11 +46,11 @@ local kloe = {
 		newVector = vector,
 	},
 	message = {
-		listen = function(...) return conversation:listen(...) end,
-		say = function(...) return conversation:say(...) end,
-		ignore = function(...) return conversation:ignore(...) end,
-		reset = function(...) return conversation:reset(...) end,
-		newGroup = function(...) return conversation:newGroup(...) end,
+		listen = function(...) return talkback:listen(...) end,
+		say = function(...) return talkback:say(...) end,
+		ignore = function(...) return talkback:ignore(...) end,
+		reset = function(...) return talkback:reset(...) end,
+		newGroup = function(...) return talkback:newGroup(...) end,
 	},
 	state = state,
 	table = {
