@@ -1,39 +1,33 @@
-## kloe.assets
-- load (cargo)
+# API ideas
 
-## kloe.class
-- newClass (classic)
+## kloe.assets (cargo)
 
-## kloe.graphics
-- newSprite (sodapop)
+## kloe.class (classic)
 
-## kloe.input
-- newPlayer (baton)
+## kloe.color (vivid.lua?)
 
-## kloe.math (mostly lume)
-- clamp
-- round
-- sign
-- lerp
+## kloe.graphics - wraps love.graphics
+
+## kloe.input (baton)
+
+## kloe.math
+- vector (hump-vector)
+- some lume functions
 - dtlerp
-- choose
-- newVector (hump-vector)
+
+## kloe.message (talkback)
+
+## kloe.physics (?)
+- plugins for ochre?
+- idk??
+- bump // hc // box2d
 
 ## kloe.state (hump-gamestate)
 
-## kloe.table (mostly lume)
-- inspect (inspect)
-- remove
-- all
-- any
-- filter
-- reject
+## kloe.table
+- inspect
+- some lume functions
 
-## kloe.timer
-- maybe want something simpler than hump-timer?
+## kloe.timer (hump-timer)
 
-## kloe.world - maybe too much?
-- newWorld
-- newBumpWorld
-- newHcWorld
-- newBox2dWorld
+## kloe.world - ochre
