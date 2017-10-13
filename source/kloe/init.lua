@@ -1,3 +1,4 @@
+local anim8 = require 'kloe.lib.anim8'
 local baton = require 'kloe.lib.baton'
 local cargo = require 'kloe.lib.cargo'
 local inspect = require 'kloe.lib.inspect'
@@ -10,6 +11,7 @@ local timer = require 'kloe.lib.timer'
 local vector = require 'kloe.lib.vector'
 
 local kloe = {
+	animation = anim8,
 	assets = {
 		load = cargo.init,
 	},
