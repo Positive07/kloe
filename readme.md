@@ -1,5 +1,15 @@
 # Kloe
 
+Kloe is a small wrapper around various libraries for LÖVE with an API that feels similar to LÖVE's own API. The libraries are hand-picked to be useful to most developers and to help start new projects quickly. Think of it as a gentle guide to common game development tools.
+
+## Usage
+
+Kloe is distributed as a basic, already-working LÖVE project. If you want to start from scratch, however, place the "kloe" folder in the base directory of the project, and `require` it in your main.lua:
+
+```lua
+kloe = require 'kloe'
+```
+
 ## API
 
 ### kloe.animation
@@ -21,15 +31,15 @@ Quick asset loading provided by [cargo](https://github.com/bjornbytes/cargo).
 
 ### kloe.class
 
-Simple class system provided by [https://github.com/rxi/classic](https://github.com/rxi/classic).
+Simple class system provided by [classic](https://github.com/rxi/classic).
 
-| Function            | Equivalent     |
-| ------------------- | ---------------|
-| kloe.class.newClass | Object:extend()|
+| Function            | Equivalent      |
+| ------------------- | --------------- |
+| kloe.class.newClass | Object:extend() |
 
 ### kloe.graphics
 
-`kloe.graphics` is a wrapper around `love.graphics`. It has the same functions as `love.graphics`, but it will automatically unpack vector arguments, so you can use numbers and vectors interchangeably in any `kloe.graphics` function.
+`kloe.graphics` is a wrapper around `love.graphics`. It has the same functions as `love.graphics`, but it will automatically unpack vector arguments (created by `kloe.math.newVector`), so you can use numbers and vectors interchangeably in any `kloe.graphics` function.
 
 In the following example, all three function calls do the same thing:
 
@@ -65,7 +75,7 @@ Commonly used math functions and vector support.
 
 ### kloe.message
 
-Observer pattern with two-way communication provided by [https://github.com/tesselode/talkback](https://github.com/tesselode/talkback).
+Observer pattern with two-way communication provided by [talkback](https://github.com/tesselode/talkback).
 
 | Function              | Equivalent         |
 | --------------------- | -------------------|
@@ -115,7 +125,7 @@ Timer instance creation provided by [hump-timer](http://hump.readthedocs.io/en/l
 
 ### kloe.world
 
-Entity management with optional ECS support provided by [https://github.com/tesselode/ochre](https://github.com/tesselode/ochre).
+Entity management with optional ECS support provided by [ochre](https://github.com/tesselode/ochre).
 
 | Function            | Equivalent |
 | ------------------- | ---------- |
