@@ -1,24 +1,31 @@
-## Modules
+# Kloe
+
+## API
 
 ### kloe.animation
 
-Provides access to [anim8](https://github.com/kikito/anim8).
+Animation helpers provided by [anim8](https://github.com/kikito/anim8).
 
-#### `kloe.animation.newGrid(frameWidth, frameHeight, imageWidth, imageHeight, left, top, border)`
-
-Identical to [`anim8.newGrid`](https://github.com/kikito/anim8#grids).
-
-#### `kloe.animation.newAnimation(frames, durations, onLoop)`
-
-Identical to [`anim8.newAnimation`](https://github.com/kikito/anim8#animations).
+| Function                    | Equivalent         |
+| --------------------------- | ------------------ |
+| kloe.animation.newGrid      | anim8.newGrid      |
+| kloe.animation.newAnimation | anim8.newAnimation |
 
 ### kloe.assets
 
-Provides access to [cargo](https://github.com/bjornbytes/cargo).
+Quick asset loading provided by [cargo](https://github.com/bjornbytes/cargo).
 
-#### `kloe.assets.load(options)`
+| Function         | Equivalent |
+| ---------------- | ---------- |
+| kloe.assets.load | cargo.init |
 
-Identical to [cargo.init](https://github.com/bjornbytes/cargo#cargo).
+### kloe.class
+
+Simple class system provided by [https://github.com/rxi/classic](https://github.com/rxi/classic).
+
+| Function            | Equivalent     |
+| ------------------- | ---------------|
+| kloe.class.newClass | Object:extend()|
 
 ### kloe.graphics
 
@@ -37,16 +44,79 @@ kloe.graphics.rectangle('fill', position, size)
 
 ### kloe.input
 
-Provides access to [baton](https://github.com/tesselode/baton).
+Input management provided by [baton](https://github.com/tesselode/baton).
 
-#### `kloe.input.newPlayer(options)`
-
-Identical to [`baton.new`](https://github.com/tesselode/baton#players).
+| Function             | Equivalent |
+| -------------------- | ---------- |
+| kloe.input.newPlayer | baton.new  |
 
 ### kloe.math
 
-#### `kloe.math.clamp(x, min, max)`
+Commonly used math functions and vector support.
 
-Identical to [`lume.clamp`](https://github.com/rxi/lume#lumeclampx-min-max).
+| Function            | Library                                                         | Equivalent        |
+| ------------------- | --------------------------------------------------------------- | ----------------- |
+| kloe.math.clamp     | [lume](https://github.com/rxi/lume)                             | lume.clamp        |
+| kloe.math.round     | [lume](https://github.com/rxi/lume)                             | lume.round        |
+| kloe.math.sign      | [lume](https://github.com/rxi/lume)                             | lume.sign         |
+| kloe.math.lerp      | [lume](https://github.com/rxi/lume)                             | lume.lerp         |
+| kloe.math.choose    | [lume](https://github.com/rxi/lume)                             | lume.randomchoice |
+| kloe.math.newVector | [hump-vector](http://hump.readthedocs.io/en/latest/vector.html) | vector            |
 
-etc...
+### kloe.message
+
+Observer pattern with two-way communication provided by [https://github.com/tesselode/talkback](https://github.com/tesselode/talkback).
+
+| Function              | Equivalent         |
+| --------------------- | -------------------|
+| kloe.message.listen   | talkback:listen()  |
+| kloe.message.say      | talkback:say()     |
+| kloe.message.ignore   | talkback:ignore()  |
+| kloe.message.reset    | talkback:reset()   |
+| kloe.message.newGroup | talkback:newGroup()|
+
+### kloe.state
+
+Simple gamestate management provided by [hump-gamestate](http://hump.readthedocs.io/en/latest/gamestate.html).
+
+| Function                  | Equivalent               |
+| ------------------------- | ------------------------ |
+| kloe.state.switch         | gamestate.switch         |
+| kloe.state.current        | gamestate.current        |
+| kloe.state.push           | gamestate.push           |
+| kloe.state.pop            | gamestate.pop            |
+| kloe.state.[callback]     | gamestate.[callback]     |
+| kloe.state.registerEvents | gamestate.registerEvents |
+
+### kloe.table
+
+Useful functions for Lua tables.
+
+| Function               | Library                                              | Equivalent      |
+| ---------------------- | ---------------------------------------------------- | ----------------|
+| kloe.table.inspect     | [inspect.lua](https://github.com/kikito/inspect.lua) | inspect         |
+| kloe.table.remove      | [lume](https://github.com/rxi/lume)                                                     | lume.remove     |
+| kloe.table.all         | [lume](https://github.com/rxi/lume)                                                     | lume.all        |
+| kloe.table.any         | [lume](https://github.com/rxi/lume)                                                     | lume.any        |
+| kloe.table.filter      | [lume](https://github.com/rxi/lume)                                                     | lume.filter     |
+| kloe.table.reject      | [lume](https://github.com/rxi/lume)                                                     | lume.reject     |
+| kloe.table.match       | [lume](https://github.com/rxi/lume)                                                     | lume.match      |
+| kloe.table.serialize   | [lume](https://github.com/rxi/lume)                                                     | lume.serialize  |
+| kloe.table.deserialize | [lume](https://github.com/rxi/lume)                                                     | lume.deserialize|
+| kloe.table.ripairs     | [lume](https://github.com/rxi/lume)                                                     | lume.ripairs    |
+
+### kloe.timer
+
+Timer instance creation provided by [hump-timer](http://hump.readthedocs.io/en/latest/timer.html).
+
+| Function            | Equivalent         |
+| ------------------- | ------------------ |
+| kloe.timer.newTimer | timer.new          |
+
+### kloe.world
+
+Entity management with optional ECS support provided by [https://github.com/tesselode/ochre](https://github.com/tesselode/ochre).
+
+| Function            | Equivalent |
+| ------------------- | ---------- |
+| kloe.world.newWorld | ochre.new  |
