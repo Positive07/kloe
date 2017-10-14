@@ -23,18 +23,9 @@ input = kloe.input.newPlayer {
 -- load assets
 setmetatable(_G, {__index = kloe.assets.load 'assets'})
 
-function love.load()
-	-- initialize states and go to the game state
-	kloe.state.registerEvents()
-	kloe.state.switch(State.Game)
-end
+kloe.state.switch(State.Game)
 
-function love.update(dt)
-	-- update the input object
-	input:update()
-end
-
-function love.keypressed(key)
+function kloe.keypressed(key)
 	-- quit on escape
 	if key == 'escape' then
 		love.event.quit()

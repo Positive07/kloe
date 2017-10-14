@@ -1,3 +1,4 @@
+-- libraries
 local anim8 = require 'kloe.lib.anim8'
 local baton = require 'kloe.lib.baton'
 local cargo = require 'kloe.lib.cargo'
@@ -10,6 +11,19 @@ local talkback = require 'kloe.lib.talkback'
 local timer = require 'kloe.lib.timer'
 local vector = require 'kloe.lib.vector'
 
+-- secrets
+_players = {}
+
+_kloe = {}
+
+function _kloe:update(dt)
+	-- update baton players
+	for _, player in ipairs(_players) do
+		player:update()
+	end
+end
+
+-- public API
 local kloe = {
 	animation = anim8,
 	assets = {
@@ -37,7 +51,12 @@ local kloe = {
 		end,
 	}),
 	input = {
-		newPlayer = baton.new,
+		newPlayer = function(...)
+			-- internally keep track of baton players
+			local player = baton.new(...)
+			table.insert(_players, player)
+			return player
+		end,
 	},
 	math = {
 		clamp = lume.clamp,
@@ -74,5 +93,18 @@ local kloe = {
 		newWorld = ochre.new,
 	},
 }
+
+-- set love callbacks to call _kloe, kloe, and state callbacks
+local callbacks = {'draw', 'errhand', 'update'}
+for callback, _ in pairs(love.handlers) do
+	table.insert(callbacks, callback)
+end
+for _, callback in ipairs(callbacks) do
+	love[callback] = function(...)
+		if _kloe[callback] then _kloe[callback](...) end
+		if kloe[callback] then kloe[callback](...) end
+		kloe.state[callback](...)
+	end
+end
 
 return kloe

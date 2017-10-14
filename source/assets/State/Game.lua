@@ -2,6 +2,7 @@ local game = {}
 
 function game:enter()
 	self.world = kloe.world.newWorld()
+	self.world:add(Class.Player())
 end
 
 function game:update(dt)
