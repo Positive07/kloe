@@ -95,7 +95,7 @@ local kloe = {
 }
 
 -- set love callbacks to call _kloe, kloe, and state callbacks
-local callbacks = {'draw', 'errhand', 'update'}
+local callbacks = {'draw', 'update'}
 for callback, _ in pairs(love.handlers) do
 	table.insert(callbacks, callback)
 end
