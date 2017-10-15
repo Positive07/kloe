@@ -107,4 +107,7 @@ for _, callback in ipairs(callbacks) do
 	end
 end
 
+-- switch to an empty state to avoid gamestate errors
+kloe.state.switch {}
+
 return kloe
