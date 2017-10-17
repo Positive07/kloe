@@ -1,18 +1,20 @@
+local kloePath = (...):gsub('%.init$', '')
+
 -- libraries
-local anim8 = require 'kloe.lib.anim8'
-local baton = require 'kloe.lib.baton'
-local bump = require 'kloe.lib.bump'
-local cargo = require 'kloe.lib.cargo'
-local hc = require 'kloe.lib.hc'
-local inspect = require 'kloe.lib.inspect'
-local lume = require 'kloe.lib.lume'
-local object = require 'kloe.lib.classic'
-local ochre = require 'kloe.lib.ochre'
-local push = require 'kloe.lib.push'
-local state = require 'kloe.lib.gamestate'
-local talkback = require 'kloe.lib.talkback'
-local timer = require 'kloe.lib.timer'
-local vector = require 'kloe.lib.vector'
+local anim8 = require(kloePath .. '.lib.anim8')
+local baton = require(kloePath .. '.lib.baton')
+local bump = require(kloePath .. '.lib.bump')
+local cargo = require(kloePath .. '.lib.cargo')
+local hc = require(kloePath .. '.lib.hc')
+local inspect = require(kloePath .. '.lib.inspect')
+local lume = require(kloePath .. '.lib.lume')
+local object = require(kloePath .. '.lib.classic')
+local ochre = require(kloePath .. '.lib.ochre')
+local push = require(kloePath .. '.lib.push')
+local state = require(kloePath .. '.lib.gamestate')
+local talkback = require(kloePath .. '.lib.talkback')
+local timer = require(kloePath .. '.lib.timer')
+local vector = require(kloePath .. '.lib.vector')
 
 -- secrets
 local players = {}
