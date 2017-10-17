@@ -1,7 +1,9 @@
 -- libraries
 local anim8 = require 'kloe.lib.anim8'
 local baton = require 'kloe.lib.baton'
+local bump = require 'kloe.lib.bump'
 local cargo = require 'kloe.lib.cargo'
+local hc = require 'kloe.lib.hc'
 local inspect = require 'kloe.lib.inspect'
 local lume = require 'kloe.lib.lume'
 local object = require 'kloe.lib.classic'
@@ -72,6 +74,10 @@ local kloe = {
 		ignore = function(...) return talkback:ignore(...) end,
 		reset = function(...) return talkback:reset(...) end,
 		newGroup = function(...) return talkback:newGroup(...) end,
+	},
+	physics = {
+		newBumpWorld = bump.newWorld,
+		newHcWorld = hc.new,
 	},
 	state = state,
 	table = {
