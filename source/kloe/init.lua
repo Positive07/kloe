@@ -15,32 +15,32 @@ local timer = require 'kloe.lib.timer'
 local vector = require 'kloe.lib.vector'
 
 -- secrets
-local _players = {}
-local _screenSetup = false
+local players = {}
+local screenSetup = false
 
-local _kloePre = {}
+local kloePre = {}
 
-function _kloePre:update(dt)
+function kloePre:update(dt)
 	-- update baton players
-	for _, player in ipairs(_players) do
+	for _, player in ipairs(players) do
 		player:update()
 	end
 end
 
-function _kloePre:draw()
-	if _screenSetup then
+function kloePre:draw()
+	if screenSetup then
 		push:start()
 	end
 end
 
-function _kloePre:resize(w, h)
+function kloePre:resize(w, h)
 	push:resize(w, h)
 end
 
-local _kloePost = {}
+local kloePost = {}
 
-function _kloePost:draw()
-	if _screenSetup then
+function kloePost:draw()
+	if screenSetup then
 		push:finish()
 	end
 end
@@ -76,7 +76,7 @@ local kloe = {
 		newPlayer = function(...)
 			-- internally keep track of baton players
 			local player = baton.new(...)
-			table.insert(_players, player)
+			table.insert(players, player)
 			return player
 		end,
 	},
@@ -102,7 +102,7 @@ local kloe = {
 	screen = {
 		setup = function(...)
 			push:setupScreen(...)
-			_screenSetup = true
+			screenSetup = true
 		end,
 		switchFullscreen = function(...) return push:switchFullscreen(...) end,
 		toGame = function(...) return push:toGame(...) end,
@@ -139,10 +139,10 @@ for callback, _ in pairs(love.handlers) do
 end
 for _, callback in ipairs(callbacks) do
 	love[callback] = function(...)
-		if _kloePre[callback] then _kloePre[callback](...) end
+		if kloePre[callback] then kloePre[callback](...) end
 		if kloe[callback] then kloe[callback](...) end
 		kloe.state[callback](...)
-		if _kloePost[callback] then _kloePost[callback](...) end
+		if kloePost[callback] then kloePost[callback](...) end
 	end
 end
 
