@@ -23,6 +23,9 @@ input = kloe.input.newPlayer {
 -- load assets
 setmetatable(_G, {__index = kloe.assets.load 'assets'})
 
+love.graphics.setDefaultFilter('nearest')
+kloe.screen.setup(256, 224, 256*4, 224*4)
+
 kloe.state.switch(State.Game)
 
 function kloe.keypressed(key)

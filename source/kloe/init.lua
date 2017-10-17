@@ -8,20 +8,40 @@ local inspect = require 'kloe.lib.inspect'
 local lume = require 'kloe.lib.lume'
 local object = require 'kloe.lib.classic'
 local ochre = require 'kloe.lib.ochre'
+local push = require 'kloe.lib.push'
 local state = require 'kloe.lib.gamestate'
 local talkback = require 'kloe.lib.talkback'
 local timer = require 'kloe.lib.timer'
 local vector = require 'kloe.lib.vector'
 
 -- secrets
-_players = {}
+local _players = {}
+local _screenSetup = false
 
-_kloe = {}
+local _kloePre = {}
 
-function _kloe:update(dt)
+function _kloePre:update(dt)
 	-- update baton players
 	for _, player in ipairs(_players) do
 		player:update()
+	end
+end
+
+function _kloePre:draw()
+	if _screenSetup then
+		push:start()
+	end
+end
+
+function _kloePre:resize(w, h)
+	push:resize(w, h)
+end
+
+local _kloePost = {}
+
+function _kloePost:draw()
+	if _screenSetup then
+		push:finish()
 	end
 end
 
@@ -79,6 +99,18 @@ local kloe = {
 		newBumpWorld = bump.newWorld,
 		newHcWorld = hc.new,
 	},
+	screen = {
+		setup = function(...)
+			push:setupScreen(...)
+			_screenSetup = true
+		end,
+		switchFullscreen = function(...) return push:switchFullscreen(...) end,
+		toGame = function(...) return push:toGame(...) end,
+		toReal = function(...) return push:toReal(...) end,
+		getDimensions = function(...) return push:getDimensions(...) end,
+		getWidth = function(...) return push:getWidth(...) end,
+		getHeight = function(...) return push:getHeight(...) end,
+	},
 	state = state,
 	table = {
 		inspect = inspect,
@@ -107,9 +139,10 @@ for callback, _ in pairs(love.handlers) do
 end
 for _, callback in ipairs(callbacks) do
 	love[callback] = function(...)
-		if _kloe[callback] then _kloe[callback](...) end
+		if _kloePre[callback] then _kloePre[callback](...) end
 		if kloe[callback] then kloe[callback](...) end
 		kloe.state[callback](...)
+		if _kloePost[callback] then _kloePost[callback](...) end
 	end
 end
 
