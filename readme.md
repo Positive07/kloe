@@ -125,8 +125,8 @@ Timer instance creation provided by [hump-timer](http://hump.readthedocs.io/en/l
 
 ### kloe.world
 
-Entity management with optional ECS support provided by [ochre](https://github.com/tesselode/ochre).
+Entity management with optional ECS support provided by [nata](https://github.com/tesselode/nata).
 
 | Function            | Equivalent |
 | ------------------- | ---------- |
-| kloe.world.newWorld | ochre.new  |
+| kloe.world.newWorld | nata()     |
