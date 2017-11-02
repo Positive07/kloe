@@ -20,6 +20,11 @@ local vector = require(kloePath .. '.lib.vector')
 local players = {}
 local screenSetup = false
 
+local insert = function (n, t, val)
+	t[n] = val
+	return n + 1
+end
+
 local kloePre = {}
 
 function kloePre:update(dt)
@@ -60,17 +65,17 @@ local kloe = {
 	graphics = setmetatable({}, {
 		__index = function(t, k)
 			return function(...)
-				local args = {...}
-				local newArgs = {}
-				for _, arg in ipairs(args) do
+				local newArgs, n = {}, 1
+				for i=1, select('#', ...) do
+					local arg = select(i, ...)
 					if vector.isvector(arg) then
-						table.insert(newArgs, arg.x)
-						table.insert(newArgs, arg.y)
+						n = insert(n, newArgs, arg.x)
+						n = insert(n, newArgs, arg.y)
 					else
-						table.insert(newArgs, arg)
+						n = insert(n, newArgs, arg)
 					end
 				end
-				love.graphics[k](unpack(newArgs))
+				love.graphics[k](unpack(newArgs, 1, n))
 			end
 		end,
 	}),
