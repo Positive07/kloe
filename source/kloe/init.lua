@@ -113,7 +113,12 @@ local kloe = {
 		getWidth = function(...) return push:getWidth(...) end,
 		getHeight = function(...) return push:getHeight(...) end,
 	},
-	state = state,
+	state = {
+		switch = gamestate.switch,
+		current = gamestate.current,
+		push = gamestate.push,
+		pop = gamestate.pop,
+	},
 	table = {
 		inspect = inspect,
 		remove = lume.remove,
