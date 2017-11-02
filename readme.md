@@ -95,8 +95,6 @@ Simple gamestate management provided by [hump-gamestate](http://hump.readthedocs
 | kloe.state.current        | gamestate.current        |
 | kloe.state.push           | gamestate.push           |
 | kloe.state.pop            | gamestate.pop            |
-| kloe.state.[callback]     | gamestate.[callback]     |
-| kloe.state.registerEvents | gamestate.registerEvents |
 
 ### kloe.table
 
