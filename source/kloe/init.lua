@@ -8,8 +8,8 @@ local cargo = require(kloePath .. '.lib.cargo')
 local hc = require(kloePath .. '.lib.hc')
 local inspect = require(kloePath .. '.lib.inspect')
 local lume = require(kloePath .. '.lib.lume')
+local nata = require(kloePath .. '.lib.nata')
 local object = require(kloePath .. '.lib.classic')
-local ochre = require(kloePath .. '.lib.ochre')
 local push = require(kloePath .. '.lib.push')
 local state = require(kloePath .. '.lib.gamestate')
 local talkback = require(kloePath .. '.lib.talkback')
@@ -130,7 +130,7 @@ local kloe = {
 		newTimer = timer.new,
 	},
 	world = {
-		newWorld = ochre.new,
+		newWorld = function(...) return nata(...) end,
 	},
 }
 
